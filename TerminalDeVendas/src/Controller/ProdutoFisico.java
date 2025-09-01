@@ -1,4 +1,4 @@
-package Entidades;
+package Controller;
 
 public class ProdutoFisico extends Produto {
     private double peso;

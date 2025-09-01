@@ -1,4 +1,4 @@
-package Entidades;
+package Controller;
 
 public class Servico extends Produto {
     private final double duracaoemHoras;

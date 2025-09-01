@@ -1,4 +1,4 @@
-package MetodosPagamento;
+package Controller;
 
  interface MetodoPagamento {
 
