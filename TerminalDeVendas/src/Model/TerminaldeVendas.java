@@ -19,7 +19,7 @@ public class TerminaldeVendas {
         }
     }
 
-    public void Venda(String nome, int quantidade){
+    public void Carrinho(String nome, int quantidade){
         if(estoque.containsKey(nome)){
             carrinho.put(nome,quantidade);
         }
