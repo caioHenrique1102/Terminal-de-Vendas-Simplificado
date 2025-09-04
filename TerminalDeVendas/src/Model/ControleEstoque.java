@@ -29,14 +29,27 @@ public class ControleEstoque {
     }
 
     public void EntradaProduto(String nome, int quantidade){
-        int novaQuantidade = 0;
+        int quantidadeEntrada = 0;
         if(estoque.containsKey(nome)){
-            novaQuantidade = produto.getQuantidade() + quantidade;
-            produto.setQuantidade(novaQuantidade);
+            quantidadeEntrada = produto.getQuantidade() + quantidade;
+            produto.setQuantidade(quantidadeEntrada);
         }else{
             System.err.println("Erro, produto não cadastrado!!!");
         }
 
+    }
+
+
+    public void SaidaProduto(String nome, int quantidade){
+        int quantidadeSaida = 0;
+        if(estoque.containsKey(nome)){
+            if(quantidade <= produto.getQuantidade()){
+            quantidadeSaida = produto.getQuantidade() - quantidadeSaida;
+            produto.setQuantidade(quantidadeSaida);
+            }else {
+                System.err.println("Erro, quantidade solicitada maior que a quantidade em estoque!!!!");
+            }
+        }
     }
 
     public void ListarProdutos(){
