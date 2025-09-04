@@ -2,5 +2,5 @@ package Controller;
 
  interface MetodoPagamento {
 
-      boolean processarPagamento();
+      boolean processarPagamento(double valor);
 }

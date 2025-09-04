@@ -22,15 +22,21 @@ public class Pagamento implements MetodoPagamento {
         return desconto;
     }
 
-    public boolean ProcessarPagamento(){
-        if(){
-
+    public boolean ProcessarPagamento(double valor){
+        boolean pagamentoAprovado;
+        if(valor == vendas.getSomaProdutos()){
+            pagamentoAprovado = true;
+        }else {
+            pagamentoAprovado = false;
         }
+        return pagamentoAprovado;
     }
 
 
     public double PagamentoDinheiro(double valor){
-        if(){
+        if(valor > vendas.getSomaProdutos()){
+
+        }else {
 
         }
     }
