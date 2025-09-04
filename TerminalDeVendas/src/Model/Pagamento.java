@@ -2,13 +2,24 @@ package Model;
 
 import Controller.MetodoPagamento;
 
+
 public class Pagamento implements MetodoPagamento {
-    private double valorPagamento;
-    private double desconto;
+    private ControleEstoque controleEstoque;
+    private Vendas vendas;
+
 
     public Pagamento(double valorPagamento){
         this.valorPagamento = valorPagamento;
         this.desconto = 0.015;
+    }
+
+
+    public double getValorPagamento() {
+        return valorPagamento;
+    }
+
+    public double getDesconto() {
+        return desconto;
     }
 
     public boolean ProcessarPagamento(){
@@ -17,11 +28,10 @@ public class Pagamento implements MetodoPagamento {
         }
     }
 
-    public double getValorPagamento() {
-        return valorPagamento;
-    }
 
-    public double getDesconto() {
-        return desconto;
+    public double PagamentoDinheiro(double valor){
+        if(){
+
+        }
     }
 }

@@ -62,7 +62,8 @@ public abstract class Produto {
     }
     @Override
     public String toString(){
-        return "\n----Entidades.Produto----"+ "\nID: " + idFormatado
+        return "\n----Produto----"+
+                "\nID: " + idFormatado
                 +"\nNome: " + nome
                 + "\nQuantidade: " + quantidade
                 +"\nPreço: " + numFormatado
