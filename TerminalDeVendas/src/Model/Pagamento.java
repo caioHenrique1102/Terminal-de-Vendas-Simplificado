@@ -43,4 +43,3 @@ public class Pagamento implements MetodoPagamento {
         return troco;
     }
 }
-s
