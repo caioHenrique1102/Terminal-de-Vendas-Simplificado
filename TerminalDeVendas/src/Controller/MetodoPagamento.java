@@ -1,6 +1,6 @@
 package Controller;
 
- interface MetodoPagamento {
+ public interface MetodoPagamento {
 
-      boolean processarPagamento(double valor);
+      boolean ProcessarPagamento(double valor);
 }

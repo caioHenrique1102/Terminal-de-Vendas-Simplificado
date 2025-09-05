@@ -21,7 +21,7 @@ public class Vendas {
 
 
 
-    publwic void Venda(String nome, int quantidade) {
+    public void Venda(String nome, int quantidade) {
         if (controleEstoque.estoque.containsKey(nome)) {
             if (produto.getQuantidade() >= quantidade) {
                 carrinho.add(produto);
