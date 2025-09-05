@@ -1,7 +1,5 @@
 package Model;
-
 import Controller.MetodoPagamento;
-
 import java.text.DecimalFormat;
 
 
@@ -21,8 +19,10 @@ public class Pagamento implements MetodoPagamento {
         boolean pagamentoAprovado;
         if(valor == vendas.getSomaProdutos()){
             pagamentoAprovado = true;
+            System.out.println("Pagamento aprovado!!");
         }else {
             pagamentoAprovado = false;
+            System.out.println("Pagamento recusado!!!");
         }
         return pagamentoAprovado;
     }
@@ -41,5 +41,14 @@ public class Pagamento implements MetodoPagamento {
         }
 
         return troco;
+    }
+
+    public boolean PagamentoCartao(double valor){
+        return ProcessarPagamento(valor);
+
+    }
+
+    public boolean PagamentoPix(double valor){
+        return ProcessarPagamento(valor);
     }
 }

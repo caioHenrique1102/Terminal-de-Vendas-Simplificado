@@ -1,7 +1,5 @@
 package Model;
-import Controller.Produto;
 import Controller.ProdutoFisico;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +10,10 @@ public class Vendas {
     private ControleEstoque controleEstoque;
     private ProdutoFisico produto;
     private double somaProdutos;
+    private Pagamento pagamento;
     String numFormatado;
     DecimalFormat df = new DecimalFormat("#,##0.00");
+
     public Vendas() {
         this.carrinho = new ArrayList<>();
         this.somaProdutos = 0;
@@ -25,7 +25,7 @@ public class Vendas {
         if (controleEstoque.estoque.containsKey(nome)) {
             if (produto.getQuantidade() >= quantidade) {
                 carrinho.add(produto);
-                for(Produto produto : carrinho){
+                for(ProdutoFisico produto : carrinho){
                     somaProdutos = somaProdutos + produto.getPreco();
                 }
                     numFormatado = df.format(somaProdutos);

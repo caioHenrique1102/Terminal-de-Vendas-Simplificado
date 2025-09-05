@@ -1,5 +1,5 @@
 package Model;
-import Controller.Produto;
+
 import Controller.ProdutoFisico;
 
 
@@ -7,7 +7,8 @@ import java.util.HashMap;
 
 public class ControleEstoque {
     private ProdutoFisico produto;
-    HashMap<String, Produto> estoque;
+    private Pagamento pagamento;
+    HashMap<String, ProdutoFisico> estoque;
 
 
     public ControleEstoque(){
@@ -53,7 +54,7 @@ public class ControleEstoque {
     }
 
     public void ListarProdutos(){
-        for(Produto produto : estoque.values()){
+        for(ProdutoFisico produto : estoque.values()){
             System.out.println(produto.toString());
         }
     }
