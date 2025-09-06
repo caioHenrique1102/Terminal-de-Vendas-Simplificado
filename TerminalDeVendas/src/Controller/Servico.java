@@ -9,7 +9,7 @@ public class Servico extends Produto {
 
     @Override
     public String toString(){
-        return "\n----Entidades.Produto----"+ "\nID: " + getIdFormatado()
+        return "\n----Produto----"+ "\nID: " + getIdFormatado()
                 +"\nNome: " + getNome()
                 + "\nQuantidade: " + getQuantidade()
                 +"\nPreço: " + getNumFormatado()

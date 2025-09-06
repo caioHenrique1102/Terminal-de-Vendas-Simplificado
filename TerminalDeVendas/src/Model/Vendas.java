@@ -9,19 +9,20 @@ public class Vendas {
     List<ProdutoFisico> carrinho;
     private ControleEstoque controleEstoque;
     private ProdutoFisico produto;
+    private final double desconto;
     private double somaProdutos;
-    private Pagamento pagamento;
     String numFormatado;
     DecimalFormat df = new DecimalFormat("#,##0.00");
 
     public Vendas() {
         this.carrinho = new ArrayList<>();
         this.somaProdutos = 0;
+        this.desconto = 0.015;
     }
 
 
 
-    public void Venda(String nome, int quantidade) {
+    public void VendaAdicionarCarrinho(String nome, int quantidade) {
         if (controleEstoque.estoque.containsKey(nome)) {
             if (produto.getQuantidade() >= quantidade) {
                 carrinho.add(produto);
@@ -29,7 +30,7 @@ public class Vendas {
                     somaProdutos = somaProdutos + produto.getPreco();
                 }
                     numFormatado = df.format(somaProdutos);
-                System.out.println("Valor total dos produtos no carrinho é de R$ " + numFormatado);
+                System.out.println("Valor total dos produtos é de R$ " + numFormatado);
             }else {
                 System.err.println("Quantidade do produto indisponivel");
             }
@@ -38,6 +39,20 @@ public class Vendas {
         }
 
     }
+
+        public double VendasDesconto(double valorTotal){
+            double calcDesconto = valorTotal * desconto;
+
+            return valorTotal - calcDesconto;
+
+        }
+
+    public void ListaProdutos(){
+        for(ProdutoFisico produtoFisico : carrinho){
+            System.out.println(produtoFisico.toString());
+        }
+    }
+
     public double getSomaProdutos() {
         return somaProdutos;
     }

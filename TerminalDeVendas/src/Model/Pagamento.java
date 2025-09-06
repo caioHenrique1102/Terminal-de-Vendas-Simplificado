@@ -7,6 +7,7 @@ public class Pagamento implements MetodoPagamento {
     private ControleEstoque controleEstoque;
     private Vendas vendas;
     private double troco;
+    boolean pagamentoAprovado;
     DecimalFormat df = new DecimalFormat("#,##0.00");
     String numFormatado;
 
@@ -16,7 +17,6 @@ public class Pagamento implements MetodoPagamento {
 
     @Override
     public boolean ProcessarPagamento(double valor){
-        boolean pagamentoAprovado;
         if(valor == vendas.getSomaProdutos()){
             pagamentoAprovado = true;
             System.out.println("Pagamento aprovado!!");
