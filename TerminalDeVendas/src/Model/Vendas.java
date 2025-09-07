@@ -11,7 +11,7 @@ public class Vendas {
     private ProdutoFisico produto;
     private final double desconto;
     private double somaProdutos;
-    String numFormatado;
+    String TotalFormatado;
     DecimalFormat df = new DecimalFormat("#,##0.00");
 
     public Vendas() {
@@ -29,8 +29,7 @@ public class Vendas {
                 for(ProdutoFisico produto : carrinho){
                     somaProdutos = somaProdutos + produto.getPreco();
                 }
-                    numFormatado = df.format(somaProdutos);
-                System.out.println("Valor total dos produtos é de R$ " + numFormatado);
+                TotalFormatado = df.format(somaProdutos);
             }else {
                 System.err.println("Quantidade do produto indisponivel");
             }
@@ -51,6 +50,12 @@ public class Vendas {
         for(ProdutoFisico produtoFisico : carrinho){
             System.out.println(produtoFisico.toString());
         }
+    }
+
+    public void TotalCarrinho(){
+        System.out.println("-----Total Carrinho-----"
+                +"R$ " + TotalFormatado
+                +"------------------------------"  );
     }
 
     public double getSomaProdutos() {
