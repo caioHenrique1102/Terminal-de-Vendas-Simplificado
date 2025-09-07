@@ -39,12 +39,16 @@ public class Vendas {
 
     }
 
-        public double VendasDesconto(double valorTotal){
+    public double VendasDesconto(double valorTotal){
             double calcDesconto = valorTotal * desconto;
 
             return valorTotal - calcDesconto;
 
         }
+
+        public void CancelarVenda(){
+        carrinho.clear();
+    }
 
     public void ListaProdutos(){
         for(ProdutoFisico produtoFisico : carrinho){

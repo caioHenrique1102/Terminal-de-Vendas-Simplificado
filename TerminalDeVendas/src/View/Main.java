@@ -1,6 +1,7 @@
 package View;
 
 
+import Model.Pagamento;
 import Model.Vendas;
 
 import java.util.Scanner;
@@ -20,47 +21,78 @@ public class Main {
                 "----Produto---- ID: 007 Nome: Kit de Ferramentas com 120 Peças Quantidade: 25 Preço: R$ 320,00");
 
         System.out.println("\n-----Menu Principal-----"
-                        +"Digite"
-                        +"\n1. Iniciar nova venda:"
-                        +"\n2. Gerenciar produtos:"
-                        +"\n3. Sair");
+                + "Digite"
+                + "\n1. Iniciar nova venda:"
+                + "\n2. Gerenciar produtos:"
+                + "\n3. Sair");
         int resposta = scan.nextInt();
         scan.nextLine();
-        if(resposta == 1){
-        while(vendasLoop){
-            Vendas vendas = new Vendas();
-            System.out.println("----Menu de Vendas----" +
-                     "Digite:"+
-                    "\n1. Adicionar Produto ao Carrinho\n" +
-                    "2. Ver Carrinho e Total\n" +
-                    "3. Aplicar Desconto\n" +
-                    "4. Finalizar Venda (Ir para Pagamento)\n" +
-                    "5. Cancelar Venda\n");
-            int repostaVenda = scan.nextInt();
-            scan.nextLine();
-
-            switch (repostaVenda){
-                case 1 -> System.out.println("Digite o nome do produto: ");
-                String nomeProduto = scan.nextLine();
-                System.out.println("Digite a quantidade do produto: ");
-                int quantidade = scan.nextInt();
+        if (resposta == 1) {
+            while (vendasLoop) {
+                Vendas vendas = new Vendas();
+                Pagamento pagamento = new Pagamento();
+                System.out.println("----Menu de Vendas----" +
+                        "Digite:" +
+                        "\n1. Adicionar Produto ao Carrinho\n" +
+                        "2. Ver Carrinho e Total\n" +
+                        "3. Aplicar Desconto\n" +
+                        "4. Finalizar Venda (Ir para Pagamento)\n" +
+                        "5. Cancelar Venda\n");
+                int repostaVenda = scan.nextInt();
                 scan.nextLine();
-                vendas.VendaAdicionarCarrinho(nomeProduto, quantidade);
-                case 2 -> vendas.ListaProdutos();
-                          vendas.TotalCarrinho();
-                case 3 ->
-                case 4 ->
-                case 5 ->
+
+                vendas.TotalCarrinho();
+                switch (repostaVenda) {
+                    case 1 -> {
+                        System.out.println("Digite o nome do produto: ");
+                        String nomeProduto = scan.nextLine();
+                        System.out.println("Digite a quantidade do produto: ");
+                        int quantidade = scan.nextInt();
+                        scan.nextLine();
+                        vendas.VendaAdicionarCarrinho(nomeProduto, quantidade);
+                    }
+                    case 2 -> {
+                        vendas.ListaProdutos();
+                        vendas.TotalCarrinho();
+                    }
+                    case 3 -> vendas.VendasDesconto(vendas.getSomaProdutos());
+                    case 4 -> {
+                        System.out.println("Escolha uma das opções de pagamento: "
+                                + "\nDigite: "
+                                + "\n1. Pagamento em dinheiro: "
+                                + "\n2. Pagamento em pix: "
+                                + "\n3. Pagamento em cartão: ");
+                        int pagamentoR = scan.nextInt();
+                        scan.nextLine();
+                        if (pagamentoR == 1) {
+                            vendas.TotalCarrinho();
+                            System.out.println("Digite o valor do pagamento");
+                            double valorDinheiro = scan.nextDouble();
+                            scan.nextLine();
+                            pagamento.PagamentoDinheiro(valorDinheiro);
+                        } else if (pagamentoR == 2) {
+                            vendas.TotalCarrinho();
+                            System.out.println("Digite o valor do pagamento");
+                            double valorPix = scan.nextDouble();
+                            scan.nextLine();
+                            pagamento.PagamentoPix(valorPix);
+                        } else if (pagamentoR == 3) {
+                            vendas.TotalCarrinho();
+                            System.out.println("Digite o valor do pagamento");
+                            double valorCartao = scan.nextDouble();
+                            scan.nextLine();
+                            pagamento.PagamentoPix(valorCartao);
+                        } else {
+                            System.err.println("Opção não existente!!!");
+                        }
+                    }
+                    case 5 -> vendas.CancelarVenda();
+
+                }
 
             }
 
         }
-
-        }
-
-
-
-
 
 
     }
